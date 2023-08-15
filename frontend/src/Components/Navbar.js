@@ -26,7 +26,7 @@ const Navbar = () => {
             <IconButton aria-label="menu button" icon={<IoMenu />} onClick={onOpen} />
             <Drawer onClose={onClose} isOpen={isOpen} placement="left" size={"xs"}>
                 <DrawerOverlay/>
-                <DrawerContent textAlign="center" borderBottomRightRadius={'10px'} maxH={'fit-content'} backdropBlur='(6px)'>
+                <DrawerContent textAlign="center" borderBottomRightRadius={'10px'} m="auto" backdropBlur='(6px)'>
                 <DrawerCloseButton/>
                 <DrawerHeader>{`Menu`}</DrawerHeader>
                 <DrawerBody display="flex" flexDirection="column" alignItems="center" gap='10px' padding={'20px'}>
