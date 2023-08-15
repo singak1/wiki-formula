@@ -21,6 +21,12 @@ app.use('/user', userRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
     .then((result) => {
+        //serve the index file
+        const path = require('path');
+        app.use(express.static(path.resolve(__dirname, "./frontend/build")));
+        app.get("*", function(req, res) {
+            res.sendFile(path.resolve(__dirname, "./frontend/build", "index.html"))
+        });
         app.listen(process.env.PORT, (req,res) => {
         console.log('Listening on PORT');
         })
