@@ -7,6 +7,7 @@ import UpdateDStandings from './pages/UpdateDStandings';
 import { lastResulContext } from './Contexts/lastResult';
 import { nextRaceContext } from './Contexts/nextRaceContext';
 import DriverStandingsPage from './pages/DriverStandingsPage';
+import UpdateCStandings from './pages/UpdateCStandings';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/newseason" element={<NewSeason />} />
             <Route path="/newresult" element={<NewResult />} />
             <Route path="/newdriverstandings" element={<UpdateDStandings/>} />
+            <Route path="/newconstructorstandings" element={<UpdateCStandings />} />
             <Route path="/standings/WDC" element={<DriverStandingsPage />} />
             <Route path="/login" element={<Login />} />
             <Route path='/signup' element={<Signup />} />

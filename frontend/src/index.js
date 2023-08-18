@@ -6,6 +6,7 @@ import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
 import Theme from './Components/Theme'
 import { DriverStandingsContextProvider } from './Contexts/DriverStandings';
 import { AuthContextProvider } from './Contexts/AuthContext';
+import { ConstructorStandingsContextProvider } from './Contexts/ConstructorStandings';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,9 @@ root.render(
     <ColorModeScript initialColorMode={Theme.config.initialColorMode} />
     <AuthContextProvider>
       <DriverStandingsContextProvider>
-        <App />
+        <ConstructorStandingsContextProvider>
+          <App />
+        </ConstructorStandingsContextProvider>
       </DriverStandingsContextProvider>
     </AuthContextProvider>
   </ChakraProvider>

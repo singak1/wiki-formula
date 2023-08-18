@@ -6,6 +6,7 @@ import NextRaceCard from "../Components/NextRaceCard";
 import LastResultTable from "../Components/LastResultTable"
 import { useDriverStandingsContext } from "../hooks/useDriverStandingsContext";
 import DriversStandings from "../Components/DriversStandings"
+import ConstructorsStandings from "../Components/ConstructorsStandings";
 import { Grid, GridItem } from "@chakra-ui/react";
 
 const Home = () => {
@@ -67,7 +68,7 @@ const Home = () => {
             >
             <GridItem rowSpan={[3, 2, 4]} colSpan={[1, 1, 3]}>{lastResult && <LastResultTable data={lastResult}/>}</GridItem>
             <GridItem mt='auto' rowSpan={[1, 1, 2]} colSpan={1}>{<DriversStandings/>}</GridItem>
-            <GridItem mt='auto' rowSpan={[1, 1, 2]} colSpan={1}>{<DriversStandings/>}</GridItem>
+            <GridItem mt='auto' rowSpan={[1, 1, 2]} colSpan={1}>{<ConstructorsStandings/>}</GridItem>
             </Grid>
         </div>
     )

@@ -8,6 +8,7 @@ const raceRoutes = require('./routes/races');
 const resultRoutes = require('./routes/results');
 const driverStandingsRoutes = require('./routes/driverStandings')
 const userRoutes = require('./routes/user')
+const constructorStandingsRoutes = require('./routes/constructorStandings')
 const { default: mongoose } = require('mongoose');
 
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use('/races', raceRoutes);
 app.use('/results', resultRoutes);
 app.use('/standings/drivers', driverStandingsRoutes);
 app.use('/user', userRoutes);
+app.use('/standings/constructors', constructorStandingsRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
     .then((result) => {
