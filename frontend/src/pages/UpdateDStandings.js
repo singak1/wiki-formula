@@ -63,7 +63,7 @@ const UpdateDStandings = () => {
     }
 
     const getData = async () => {
-        const result = await fetch('http://ergast.com/api/f1/current/driverStandings.json');
+        const result = await fetch('https://ergast.com/api/f1/current/driverStandings.json');
         const resjson = await result.json()
         if(result.ok) {
             return resjson;

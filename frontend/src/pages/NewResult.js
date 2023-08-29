@@ -6,7 +6,7 @@ const NewResult = () => {
     const { user } = useAuthContext()
 
     const getResult = async () => {
-        const result = await fetch('http://ergast.com/api/f1/current/last/results.json')
+        const result = await fetch('https://ergast.com/api/f1/current/last/results.json')
         const resjson = await result.json()
         if(result.ok) {
             return resjson;
