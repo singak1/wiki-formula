@@ -14,7 +14,7 @@ const UpdateCStandings = () => {
     }
 
     const getData = async () => {
-        const result = await fetch('https://ergast.com/api/f1/current/driverStandings.json');
+        const result = await fetch('https://ergast.com/api/f1/current/constructorStandings.json');
         const resjson = await result.json()
         if(result.ok) {
             return resjson;
