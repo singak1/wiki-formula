@@ -1,8 +1,10 @@
 import { useContext, useEffect } from "react";
 import { useConstructorStandingsContext } from "../hooks/useConstructorStandingsContext"
+import { useAuthContext } from "../hooks/useAuthContext"
 
 const UpdateCStandings = () => {
     const { cStandings, dispatch } = useConstructorStandingsContext()
+    const { user } = useAuthContext()
 
     const getSeason = async () =>{
         try{
@@ -25,7 +27,8 @@ const UpdateCStandings = () => {
             method: 'PATCH',
             body: JSON.stringify(rslt),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json();
@@ -38,7 +41,8 @@ const UpdateCStandings = () => {
             method: 'POST',
             body: JSON.stringify(rslt),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json();

@@ -51,9 +51,11 @@ const UpdateDStandings = () => {
 export default UpdateDStandings*/
 import { useEffect } from "react";
 import { useDriverStandingsContext } from "../hooks/useDriverStandingsContext";
+import { useAuthContext } from "../hooks/useAuthContext"
 
 const UpdateDStandings = () => {
     const {dStandings, dispatch} = useDriverStandingsContext();
+    const { user } = useAuthContext()
 
     const getSeason = async () =>{
         try{
@@ -76,7 +78,8 @@ const UpdateDStandings = () => {
             method: 'PATCH',
             body: JSON.stringify(rslt),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json();
@@ -89,7 +92,8 @@ const UpdateDStandings = () => {
             method: 'POST',
             body: JSON.stringify(rslt),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json();
