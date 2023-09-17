@@ -52,7 +52,7 @@ const LastResultTable = (res) => {
 
     return(
         <div>
-            <TableContainer maxW='auto' m='auto' mt='4' borderRadius='10px' borderWidth='thin' borderColor='#C28FFF' borderStyle='solid'>
+            <TableContainer maxW='auto' m='auto' borderRadius='10px' borderWidth='thin' borderColor='#C28FFF' borderStyle='solid'>
                 <Table variant='simple' size={['sm']}>
                   <TableCaption mt="auto" placement="top"><Text mt="auto" as="b" fontSize="md">Last Race Results</Text></TableCaption>
                     <Thead>
@@ -73,7 +73,7 @@ const LastResultTable = (res) => {
                             const flag = result.Driver.nationality
                             let fastestLap;
                             let lapRank;
-                            if ( positionText === "R") {
+                            if ( positionText === "R" || positionText === "W") {
                                 fastestLap = "NA";
                                 lapRank = "NA";
                             }

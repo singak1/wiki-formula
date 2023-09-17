@@ -26,7 +26,7 @@ const DriverStandings = () => {
             {dStandings &&
             <TableContainer cursor={"pointer"} maxW='auto' m='auto' mt='auto' borderRadius='10px' borderWidth='thin' borderColor='#C28FFF' borderStyle='solid' onClick={handleClick}>
                 <Table size={['sm', 'md']}>
-                    <TableCaption placement='top' mt='auto'><Text as="b" fontSize="md">WDC Standings</Text></TableCaption>
+                    <TableCaption placement='top' m='auto'><Text as="b" fontSize="md">WDC Standings</Text></TableCaption>
                     <Thead>
                         <Tr>
                             <Th>Pos.</Th>
