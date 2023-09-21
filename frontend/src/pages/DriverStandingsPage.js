@@ -1,5 +1,5 @@
 import { useDriverStandingsContext } from "../hooks/useDriverStandingsContext";
-import { Grid, Card, Image, Text, useColorMode, Flex, Spacer } from "@chakra-ui/react";
+import { Grid, Card, Image, Text, useColorMode, Flex, Spacer, Box } from "@chakra-ui/react";
 import { useEffect} from "react"
 import Navbar from "../Components/Navbar";
 
@@ -23,6 +23,7 @@ const DriverStandingsPage = () => {
         if(nm === "Pérez") return "Perez"
         else if(nm === "Hülkenberg") return "Hulkenberg"
         else if(nm === "de Vries") return "default"
+        else if(nm === "Lawson") return "default"
         else return nm
     }
     
@@ -39,51 +40,36 @@ const DriverStandingsPage = () => {
     return(
         <div>
             <Navbar />
-            {/*dStandings &&
-            <TableContainer maxW='auto' m='auto' mt='auto'>
-                <Table size={['sm', 'lg']}>
-                    <TableCaption placement='top' mt='auto'><Text fontSize="2xl">WDC Standings</Text></TableCaption>
-                    <Thead>
-                        <Tr>
-                            <Th>Pos.</Th>
-                            <Th textAlign={"center"}>Name</Th>
-                            <Th textAlign={"center"} display={['none', 'table-cell']}>Constructor</Th>
-                            <Th display={['none', 'table-cell']}>Wins</Th>
-                            <Th>Points</Th>
-                        </Tr>
-                    </Thead>
-                    <Tbody>
-                        {dStandings.DriverStandings.map((driver, index) => {
-                            return(
-                                <Tr key={index}>
-                                    <Td>{driver.position === "1" ? <Icon as={IoIosTrophy} w={'40px'} h={'40px'} color="#F1C40F"/> : driver.position}</Td>
-                                    <Td><Flex alignItems="center" justifyContent="space-evenly">{driver.Driver.familyName} <Image borderRadius="full" boxSize={"55px"} src={`/images/faces/${getName(driver.Driver.familyName)}.png`} /></Flex></Td>
-                                    <Td display={['none', 'table-cell']}><Image filter={colorMode === "dark" ? 'invert(1) grayscale(1)' : 'invert(0)'} m='auto' maxW={'135px'} maxH='55px' src={`/images/constructors/${getConstructor(driver.Constructors[0].name)}.svg`} /></Td>
-                                    <Td display={['none', 'table-cell']}>{driver.wins}</Td>
-                                    <Td>{driver.points}</Td>
-                                </Tr>
-                            )
-                        })}
-                    </Tbody>
-                </Table>
-            </TableContainer>
-                    */}
             {   dStandings &&
-                <Grid templateColumns="repeat(2, 1fr)" gap={4} p={4}>
+                <Grid templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(2, 1fr)"]} gap={4} p={[1, 2, 4]}>
                     {dStandings.DriverStandings.map((driver, index) => (
-                        <Card key={index} p="10">
+                        <Card key={index} pt={['4', '10']} pb={['4', '10']} pr={['2', '4']} pl={['2', '4']}>
                             <Flex alignItems="center">
-                                <Image  borderRadius="full" boxSize={"55px"} src={`/images/faces/${getName(driver.Driver.familyName)}.png`} />
+                                <Image  borderRadius="full" boxSize={["55px", "75px"]} src={`/images/faces/${getName(driver.Driver.familyName)}.png`} />
                                 <Spacer/>
-                                <Text>{driver.position}</Text>
+                                <Box textAlign='center'>
+                                    <Text as='b' mt='2px' mb='2px'>{driver.position}</Text>
+                                    <Text color='gray.400'>Pos.</Text>
+                                </Box>
                                 <Spacer/>
-                                <Image filter={colorMode === "dark" ? 'invert(1) grayscale(1)' : 'invert(0)'} m='auto' maxW={'135px'} maxH='55px' src={`/images/constructors/${getConstructor(driver.Constructors[0].name)}.svg`} />
+                                <Box minW={['75px','135px']}>
+                                    <Image filter={colorMode === "dark" ? 'invert(1) grayscale(1)' : 'invert(0)'} m='auto' maxW={['75px','135px']} maxH={['35px','55px']} src={`/images/constructors/${getConstructor(driver.Constructors[0].name)}.svg`} />
+                                </Box>
                                 <Spacer/>
-                                <Text >{driver.Driver.familyName}</Text>
+                                <Box textAlign='center'>
+                                    <Text as='b' mt='2px' mb='2px'>{driver.Driver.familyName}</Text>
+                                    <Text color='gray.400'>Name</Text>
+                                </Box>
                                 <Spacer/>
-                                <Text >{driver.wins}</Text>
+                                <Box textAlign='center'>
+                                    <Text as='b' mt='2px' mb='2px'>{driver.wins}</Text>
+                                    <Text color='gray.400'>Wins</Text>
+                                </Box>
                                 <Spacer/>
-                                <Text >{driver.points}</Text>
+                                <Box textAlign='center'>
+                                    <Text as='b' mt='2px' mb='2px'>{driver.points}</Text>
+                                    <Text color='gray.400'>Points</Text>
+                                </Box>
                             </Flex>
                         </Card>
                     ))}
