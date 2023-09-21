@@ -1,12 +1,11 @@
 import { useDriverStandingsContext } from "../hooks/useDriverStandingsContext";
-import { TableContainer ,Table, Thead, Tbody, Tr, Th, Td, Image, TableCaption, Text, Icon, useColorMode, Flex } from "@chakra-ui/react";
-import {IoIosTrophy} from "react-icons/io"
-import { useEffect } from "react"
+import { Grid, Card, Image, Text, useColorMode, Flex, Spacer } from "@chakra-ui/react";
+import { useEffect} from "react"
 import Navbar from "../Components/Navbar";
 
 const DriverStandingsPage = () => {
     const {dStandings, dispatch} = useDriverStandingsContext();
-    const { colorMode } = useColorMode()
+    const { colorMode } = useColorMode();
 
     useEffect(() => {
         const fetchResults = async () => {
@@ -36,10 +35,11 @@ const DriverStandingsPage = () => {
         else if(nm === "AlphaTauri") return "Alpha"
         else return nm
     }
+
     return(
         <div>
             <Navbar />
-            {dStandings &&
+            {/*dStandings &&
             <TableContainer maxW='auto' m='auto' mt='auto'>
                 <Table size={['sm', 'lg']}>
                     <TableCaption placement='top' mt='auto'><Text fontSize="2xl">WDC Standings</Text></TableCaption>
@@ -67,6 +67,27 @@ const DriverStandingsPage = () => {
                     </Tbody>
                 </Table>
             </TableContainer>
+                    */}
+            {   dStandings &&
+                <Grid templateColumns="repeat(2, 1fr)" gap={4} p={4}>
+                    {dStandings.DriverStandings.map((driver, index) => (
+                        <Card key={index} p="10">
+                            <Flex alignItems="center">
+                                <Image  borderRadius="full" boxSize={"55px"} src={`/images/faces/${getName(driver.Driver.familyName)}.png`} />
+                                <Spacer/>
+                                <Text>{driver.position}</Text>
+                                <Spacer/>
+                                <Image filter={colorMode === "dark" ? 'invert(1) grayscale(1)' : 'invert(0)'} m='auto' maxW={'135px'} maxH='55px' src={`/images/constructors/${getConstructor(driver.Constructors[0].name)}.svg`} />
+                                <Spacer/>
+                                <Text >{driver.Driver.familyName}</Text>
+                                <Spacer/>
+                                <Text >{driver.wins}</Text>
+                                <Spacer/>
+                                <Text >{driver.points}</Text>
+                            </Flex>
+                        </Card>
+                    ))}
+                </Grid>
             }
         </div>
     )
