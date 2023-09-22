@@ -6,6 +6,7 @@ const Flag = (country) => {
             return "NL"
         //ITALY
         case "Italy" :
+        case "Italian" :
             return "IT"
         //BAHRAIN
         case "Bahrain" :
@@ -39,6 +40,7 @@ const Flag = (country) => {
             return "CA"
         //AUSTRIA
         case "Austria" :
+        case "Austrian" :
             return "AT"
         //UK
         case "UK" :
@@ -88,6 +90,8 @@ const Flag = (country) => {
         //GERMANY
         case "German" :
             return "DE"
+        case "Swiss" :
+            return "CH"
         default :
             return "error"
     }

@@ -1,14 +1,15 @@
 import { useConstructorStandingsContext } from "../hooks/useConstructorStandingsContext"
-import { TableContainer ,Table, Thead, Tbody, Tr, Th, Td, Image, TableCaption, Text, Icon } from "@chakra-ui/react";
+import { TableContainer ,Table, Thead, Tbody, Tr, Th, Td, Image, TableCaption, Text, Icon, useColorMode } from "@chakra-ui/react";
 import {IoIosTrophy} from "react-icons/io"
 import { useNavigate } from "react-router-dom";
 
 const ConstructorsStandings = () => {
     const {cStandings } = useConstructorStandingsContext();
     const navigate = useNavigate();
+    const { colorMode } = useColorMode();
 
     const handleClick = () => {
-        navigate("/standings/WDC");
+        navigate("/standings/WCC");
     }
     
     const getConstructor = (nm) => {
@@ -42,7 +43,7 @@ const ConstructorsStandings = () => {
                                 <Tr key={index}>
                                     <Td>{constructor.position === "1" ? <Icon as={IoIosTrophy} w={'22px'} h={'22px'} color="#F1C40F"/> : constructor.position}</Td>
                                     <Td>{constructor.Constructor.name}</Td>
-                                    <Td display={['none', 'table-cell']}><Image m='auto' w='75px' h='22px' src={`/images/constructors/${getConstructor(constructor.Constructor.name)}.svg`} /></Td>
+                                    <Td display={['none', 'table-cell']}><Image filter={colorMode === "dark" ? 'invert(1) grayscale(1)' : 'invert(0)'} m='auto' w='75px' h='22px' src={`/images/constructors/${getConstructor(constructor.Constructor.name)}.svg`} /></Td>
                                     <Td display={['none', 'table-cell']}>{constructor.wins}</Td>
                                     <Td>{constructor.points}</Td>
                                 </Tr>
