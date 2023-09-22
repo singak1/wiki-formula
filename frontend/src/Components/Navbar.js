@@ -35,7 +35,8 @@ const Navbar = () => {
                         onClick={goHome}
                         icon={<IoHome />}
                 />
-                <Link to="/standings/WDC"><Button>WDC Standings</Button></Link>
+                <Link to="/standings/WDC"><Button>Driver Standings</Button></Link>
+                <Link to="/standings/WCC"><Button>Constructor Standings</Button></Link>
                 {user && (<div>
                     <span>{user.email}</span><Button ml='4px' onClick={handleClick}>Log Out</Button>
                 </div>)}

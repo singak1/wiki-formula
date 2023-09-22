@@ -1,11 +1,12 @@
 import { useDriverStandingsContext } from "../hooks/useDriverStandingsContext";
-import { TableContainer ,Table, Thead, Tbody, Tr, Th, Td, Image, TableCaption, Text, Icon } from "@chakra-ui/react";
+import { TableContainer ,Table, Thead, Tbody, Tr, Th, Td, Image, TableCaption, Text, Icon, useColorMode } from "@chakra-ui/react";
 import {IoIosTrophy} from "react-icons/io"
 import { useNavigate } from "react-router-dom";
 
 const DriverStandings = () => {
     const {dStandings} = useDriverStandingsContext();
     const navigate = useNavigate();
+    const { colorMode } = useColorMode();
 
     const handleClick = () => {
         navigate("/standings/WDC");
@@ -42,7 +43,7 @@ const DriverStandings = () => {
                                 <Tr key={index}>
                                     <Td>{driver.position === "1" ? <Icon as={IoIosTrophy} w={'22px'} h={'22px'} color="#F1C40F"/> : driver.position}</Td>
                                     <Td>{driver.Driver.familyName}</Td>
-                                    <Td display={['none', 'table-cell']}><Image m='auto' w='75px' h='22px' src={`/images/constructors/${getConstructor(driver.Constructors[0].name)}.svg`} /></Td>
+                                    <Td display={['none', 'table-cell']}><Image filter={colorMode === "dark" ? 'invert(1) grayscale(1)' : 'invert(0)'} m='auto' w='75px' h='22px' src={`/images/constructors/${getConstructor(driver.Constructors[0].name)}.svg`} /></Td>
                                     <Td display={['none', 'table-cell']}>{driver.wins}</Td>
                                     <Td>{driver.points}</Td>
                                 </Tr>
