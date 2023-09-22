@@ -2,6 +2,7 @@ import { useDriverStandingsContext } from "../hooks/useDriverStandingsContext";
 import { Grid, Card, Image, Text, useColorMode, Flex, Spacer, Box } from "@chakra-ui/react";
 import { useEffect} from "react"
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 const DriverStandingsPage = () => {
     const {dStandings, dispatch} = useDriverStandingsContext();
@@ -76,6 +77,7 @@ const DriverStandingsPage = () => {
                     ))}
                 </Grid>
             }
+            <Footer/>
         </div>
     )
 }

@@ -8,6 +8,7 @@ import { useDriverStandingsContext } from "../hooks/useDriverStandingsContext";
 import DriversStandings from "../Components/DriversStandings"
 import ConstructorsStandings from "../Components/ConstructorsStandings";
 import { Grid, GridItem } from "@chakra-ui/react";
+import Footer from "../Components/Footer";
 
 const Home = () => {
 
@@ -71,7 +72,9 @@ const Home = () => {
             <GridItem mt='auto' rowSpan={[1, 1, 2]} colSpan={1}>{<DriversStandings/>}</GridItem>
             <GridItem mt='auto' rowSpan={[1, 1, 2]} colSpan={1}>{<ConstructorsStandings/>}</GridItem>
             </Grid>
+            <Footer/>
         </div>
+        
     )
 }
 
