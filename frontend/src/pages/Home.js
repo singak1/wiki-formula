@@ -16,6 +16,7 @@ const Home = () => {
     const { dispatch } = useDriverStandingsContext();
 
     useEffect(() => {
+        window.scrollTo(0,0); //Scroll to top everytime route changes
         const fetchResults = async () => {
             const response = await fetch('/standings/drivers/')
             const json = await response.json()
