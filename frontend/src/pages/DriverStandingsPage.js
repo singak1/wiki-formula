@@ -41,9 +41,9 @@ const DriverStandingsPage = () => {
         <div>
             <Navbar />
             {   dStandings &&
-                <Grid templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(2, 1fr)"]} gap={4} p={[1, 2, 4]}>
+                <Grid templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(1, 1fr)","repeat(2, 1fr)"]} gap={[2,4]} p={[1, 2, 4]}>
                     {dStandings.DriverStandings.map((driver, index) => (
-                        <Card key={index} pt={['4', '10']} pb={['4', '10']} pr={['2', '4']} pl={['2', '4']}>
+                        <Card key={index} pt={['5', '10']} pb={['5', '10']} pr={['2', '4']} pl={['2', '4']}>
                             <Flex alignItems="center">
                                 <Image  borderRadius="full" boxSize={["55px", "75px"]} src={`/images/faces/${getName(driver.Driver.familyName)}.png`} />
                                 <Spacer/>
