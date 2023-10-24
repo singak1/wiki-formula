@@ -73,7 +73,7 @@ const LastResultTable = (res) => {
                             const flag = result.Driver.nationality
                             let fastestLap;
                             let lapRank;
-                            if ( positionText === "R" || positionText === "W") {
+                            if ( positionText === "R" || positionText === "W" || positionText === "D") {
                                 fastestLap = "NA";
                                 lapRank = "NA";
                             }
