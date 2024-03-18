@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
+import { useAuthContext } from "../hooks/useAuthContext"
 
 const NewSeason = () => {
     const [addSeason, setAddSeason] = useState(null)
+    const { user } = useAuthContext()
     
     const getSeason = async () => {
         const result = await fetch('https://ergast.com/api/f1/current.json')
