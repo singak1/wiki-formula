@@ -40,11 +40,9 @@ const Home = () => {
     
         const fetchRaces = async () => {
             let { season, round } = await lastRound();
-            console.log(season, round);
             const rnd = ++round;
-            console.log('/race/'+rnd);
             try{
-                const response = await fetch('/races/'+rnd)
+                const response = await fetch('/races/'+rnd+'/'+season)
                 const json = await response.json();
                 await setNextRace(json);
             if (response.ok) {

@@ -13,7 +13,6 @@ const ConstructorsStandings = () => {
     }
     
     const getConstructor = (nm) => {
-        console.log(nm)
         if(nm === "Red Bull") return "RedBull"
         else if(nm === "Aston Martin") return "Aston"
         else if(nm === "Alpine F1 Team") return "Alpine"

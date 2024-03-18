@@ -43,7 +43,6 @@ const LastResultTable = (res) => {
       try { const driverstandings = dStandings.DriverStandings
       for (const drivers of driverstandings){
         if(drivers.Driver.familyName === lName) {
-          console.log(drivers.position)
           return drivers.position;
         }
       }
