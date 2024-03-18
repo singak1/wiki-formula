@@ -16,7 +16,8 @@ const NewSeason = () => {
             method: 'POST',
             body: JSON.stringify(race),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json();
