@@ -4,7 +4,7 @@ const NewSeason = () => {
     const [addSeason, setAddSeason] = useState(null)
     
     const getSeason = async () => {
-        const result = await fetch('http://ergast.com/api/f1/current.json')
+        const result = await fetch('https://ergast.com/api/f1/current.json')
         const resjson = await result.json()
         if(result.ok) {
             return resjson;
