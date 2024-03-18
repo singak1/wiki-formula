@@ -26,6 +26,7 @@ const DriverStandingsPage = () => {
         else if(nm === "Hülkenberg") return "Hulkenberg"
         else if(nm === "de Vries") return "default"
         else if(nm === "Lawson") return "default"
+        else if(nm === "Bearman") return "default"
         else return nm
     }
     
@@ -34,8 +35,7 @@ const DriverStandingsPage = () => {
         else if(nm === "Aston Martin") return "Aston"
         else if(nm === "Alpine F1 Team") return "Alpine"
         else if(nm === "Haas F1 Team") return "Haas"
-        else if(nm === "Alfa Romeo") return "Alfa"
-        else if(nm === "AlphaTauri") return "Alpha"
+        else if(nm === "RB F1 Team") return "RB"
         else return nm
     }
 

@@ -27,8 +27,7 @@ const ConstructorStandingsPage = () => {
         else if(nm === "Aston Martin") return "Aston"
         else if(nm === "Alpine F1 Team") return "Alpine"
         else if(nm === "Haas F1 Team") return "Haas"
-        else if(nm === "Alfa Romeo") return "Alfa"
-        else if(nm === "AlphaTauri") return "Alpha"
+        else if(nm === "RB F1 Team") return "RB"
         else return nm
     }
 
