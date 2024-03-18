@@ -12,7 +12,8 @@ const getAllRaces = async (req, res) => {
 
 const getRace = async (req, res) => {
     const querry_round = req.params.round;
-    const schedule = await Schdeule.findOne({'round' : querry_round});
+    const querry_season = req.params.season;
+    const schedule = await Schdeule.findOne({'round' : querry_round, 'season' : querry_season});
     try {
         res.status(200).json(schedule);
     } catch (error) {

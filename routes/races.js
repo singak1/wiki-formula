@@ -7,7 +7,7 @@ const isAdmin = require('../middleware/isAdmin')
 router.get('/', getAllRaces);
 
 //GET SPECIFIC RACE
-router.get('/:round', getRace);
+router.get('/:round/:season', getRace);
 
 router.use(isAdmin);
 //POST UPCOMING SEASON !!ONLY ACCESSIBLE TO ADMIN/MOD USERS
