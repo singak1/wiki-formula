@@ -12,6 +12,7 @@ const NextRaceCard = () => {
     const racedatetime = date+'T'+time;
     var timetill;
     const flg = Flag(nextRace.country)
+    console.log(nextRace.country)
 
     timetill = formatDistanceStrict(parseISO(new Date().toISOString()),parseISO(racedatetime),{unit: 'second'});
     timetill = parseInt(timetill.slice(0,-8));
