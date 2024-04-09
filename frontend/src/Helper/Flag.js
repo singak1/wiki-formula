@@ -79,6 +79,7 @@ const Flag = (country) => {
         case "Finnish" :
             return "FI"
         //CHINA
+        case "China" :
         case "Chinese" :
             return "CN"
         //THAILAND
